@@ -1,11 +1,12 @@
-SSL sertifikaat
+# Ülesanne
+Ülesandeks oli ise teha https lehekülg ehk SSL sertifikaat.
 
-Esimesed käsud:
+###### Esimesed käsud:
 
-1. apt-get update
-2. apt-get upgrade openssl
+> 1. apt-get update
+> 2. apt-get upgrade openssl
 
-SSL mooduli startimine:
+###### SSL mooduli startimine:
 
 1. a2enmod ssl
 2. a2ensite default-ssl
