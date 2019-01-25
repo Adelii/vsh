@@ -1,19 +1,19 @@
-Wordpress install
+# Wordpress install
 
-Install:
+### Install:
 
-1. cd /var/www/html/
-2. wget http://wordpress.org/latest.zip
-3. aptitude install unzip
-4. unzip -q latest.zip
-5. chown -R www-data:www-data /var/www/html/wordpress
-6. chmod -R 755 /var/www/html/wordpress
-7. mkdir -p /var/www/html/wordpress/wp-content/uploads
-8. chown -R www-data:www-data /var/www/html/wordpress/wp-content/uploads
+> 1. cd /var/www/html/
+> 2. wget http://wordpress.org/latest.zip
+> 3. aptitude install unzip
+> 4. unzip -q latest.zip
+> 5. chown -R www-data:www-data /var/www/html/wordpress
+> 6. chmod -R 755 /var/www/html/wordpress
+> 7. mkdir -p /var/www/html/wordpress/wp-content/uploads
+> 8. chown -R www-data:www-data /var/www/html/wordpress/wp-content/uploads
 
-Databaasi loomine:
+### Databaasi loomine:
 
-1. mysql -u root -p
+> 1. mysql -u root -p
 
 Muuda vajalikud asjad ise nt password jne
 
@@ -27,7 +27,7 @@ FLUSH PRIVILEGES;
 
 exit
 
-Wordpressi konfigureerimine
+### Wordpressi konfigureerimine
 
 Kindlasti mäleta oma seatud paroole ja localhosti.
 
