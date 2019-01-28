@@ -46,11 +46,21 @@ Järgmisena teed tavalise kasutaja.
 > 3. Kõik kolm masinat tuleb panna ühte võrku (NAT)
 
 ### Apache/worpress masin
-###### Juhendi leiab eelenevates README failidest
+###### Installimis juhendi leiab eelenevates README failidest
 
 > 1. installi php, apache2, mysql klient, wordpress
-> 2. Muuda mq.sql faili. Leia bind = database masina ip
+> 2. Muuda mq.sql faili. Leia bind = database masina ip (Seda on vaja, et kaks eraldi masinat saaks suhelda omavahel)
 
+### PHP probleemid
+
+Installisin kõik ilusti ära, kuid PHP ei töödanud ilusti. Installisin erinevaid lisasid, kuid ikka ei töödanud. Sain aru, et lihtsam on uuesti installida uus versioon php'st.
+INSTALLI KA PHP MYSQL LISA
+
+### Database masin
+
+> 1. Installi MySQL server ja klient jms
+> 2. Loo MySQL andmebaas
+> 3. Muuda mq.sql faili. Leia bind = database masina ip
 
 
 
