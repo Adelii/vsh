@@ -1,5 +1,7 @@
 # Wordpress install
 
+Ülesandeks oli installida wordpress ja MySQL andmebaas.
+
 ### Install:
 
 > 1. cd /var/www/html/
