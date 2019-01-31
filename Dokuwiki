@@ -1,0 +1,57 @@
+# Dokuwiki
+Ülesandeks oli installida debian 8.10'le töötav dokuwiki.
+Masinasse oli eelnevalt installitud Apache2, php7.1, mysql klient.
+
+### Kõige esimesena peab installima lighttpd
+
+> 1. apt-get update
+> 2. apt-get install lighttpd
+> 3. apt-get install php (kui pole juba olemas) dokuwiki
+
+### Nginx faili tegemine
+
+> 1. nano /etc/nginx/sites-enabled/default
+
+    # serve static files from nginx
+    location ~ ^/dokuwiki/lib/.+\.(css|gif|js|png)$ {
+        root /usr/share;
+        expires 30d;
+    }
+    location = /dokuwiki/install.php {
+        deny all;
+    }
+    location = /dokuwiki {
+        rewrite ^ /dokuwiki/ permanent;
+    }
+    location = /dokuwiki/ {
+        rewrite ^ /dokuwiki/doku.php last;
+        expires 30d;
+    }
+    location ~ ^/dokuwiki/(|lib/(exe|plugins/[^/]+)/)[^/]+\.php {
+        root /usr/share;
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        include        fastcgi_params;
+        # from Debian Jessie, replace the previous include by
+        include snippets/fastcgi-php.conf;
+    }
+    location /dokuwiki/ {
+        deny all;
+    }
+    
+ ### Muuda järgmist faili
+ 
+ > 1. nano /etc/apache2/mods-enabled/dir.conf
+ 
+ <IfModule mod_dir.c>
+          DirectoryIndex index.php index.html index.cgi index.pl index.php index.xhtml index.htm
+</IfModule>
+
+### Vaata, et kõik oleks lingitud:
+
+ls -l /etc/apache2/conf-available/
+lrwxrwxrwx 1 root root   25 Apr  5  2014 dokuwiki.conf -> /etc/dokuwiki/apache.conf
+ 
+ls -l /etc/apache2/conf-enabled/
+lrwxrwxrwx 1 root root   32 Apr  5  2014 dokuwiki.conf -> ../conf-available/dokuwiki.conf
+
+### Apache config failis "aliase" muutmine ja "Allow from localhost IP" enda vajaduste järgi.
